@@ -107,14 +107,21 @@
         Will you be my valentine for the whole life?
     </div>
     <div class="buttons">
-        <button class="button" onclick="response('Yes')">Yes, I will</button>
-        <button class="button" onclick="response('No')">I already am</button>
+        <button class="button" onclick="response('Yes')">Yes, I will😍😍😍</button>
+        <button class="button" onclick="response('No')">No, Never! Sorry😥😥😥</button>
     </div>
+
     <script>
         function response(answer) {
-            let message = answer === 'Yes' ? 'You've just made my heart skip a beat! Here's to a lifetime of love and happiness. 💖' : 'Every day with you is a blessing. Let's keep making each other happy. 💕';
+            let message;
+            if (answer === 'Yes') {
+                message = 'You\'ve just made my heart skip a beat! Here\'s to a lifetime of love and happiness. 💋😘💖';
+            } else {
+                message = 'Fucking Hell! How dare you selected this option? Go Back and Select Yes, I will. 😡';
+            }
             alert(message);
         }
     </script>
+
 </body>
 </html>
