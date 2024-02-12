@@ -4,12 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Valentine's Day!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe0f0;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #d6336c;
+        }
+        p {
+            font-size: 18px;
+        }
+        .question {
+            margin-top: 30px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 20px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .yes {
+            color: white;
+            background-color: #4CAF50;
+        }
+        .yes:hover {
+            background-color: #45a049;
+        }
+        .no {
+            color: white;
+            background-color: #f44336;
+        }
+        .no:hover {
+            background-color: #da190b;
+        }
+    </style>
 </head>
 <body>
     <h1>Happy Valentine's Day, [Partner's Name]!</h1>
     <p>I wanted to make something special for you, to show you how much you mean to me. 💖</p>
-    <p>Here's to us and the beautiful moments we've shared and to those yet to come. I love you!</p>
-    <!-- You can add more personal touches here like images, links to songs, or videos -->
+    <p>Here's to us, to the beautiful moments we've shared, and to those yet to come. I love you more than words can say!</p>
+    <div class="question">
+        Will you be my valentine for the whole life?
+    </div>
+    <button class="button yes" onclick="response('Yes')">Yes</button>
+    <button class="button no" onclick="response('No')">No</button>
+    <script>
+        function response(answer) {
+            if (answer === 'Yes') {
+                alert('You have made me the happiest person on Earth! 💖');
+            } else {
+                alert('This is awkward... But I still love you! 💔');
+            }
+        }
+    </script>
 </body>
 </html>
-
