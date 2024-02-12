@@ -5,10 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Valentine's Day!</title>
     <style>
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+            70% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+        }
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #ffccd5;
-            color: #444;
+            background-color: #333;
+            color: #ccc;
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,10 +30,10 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            background-image: linear-gradient(to bottom right, #ffccd5, #f7a8b8);
+            background: radial-gradient(circle, #2d3436, #000000);
         }
         h1 {
-            color: #a14458;
+            color: #ff4757;
             font-size: 2.5em;
         }
         p {
@@ -33,7 +47,6 @@
             font-weight: bold;
             font-size: 1.5em;
             color: #ffffff;
-            text-shadow: 2px 2px 4px #000000;
         }
         .buttons {
             margin-top: 20px;
@@ -42,43 +55,64 @@
             padding: 10px 30px;
             margin: 0 10px;
             font-size: 1em;
-            border: 2px solid transparent;
+            border: 2px solid #555;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             color: #fff;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: #555;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
-        .yes {
-            background-color: #4CAF50;
+        .button:hover {
+            background-color: #777;
+            border-color: #999;
         }
-        .yes:hover {
-            background-color: #45a049;
-            border-color: #fff;
+        .heart {
+            position: absolute;
+            top: 10%;
+            display: block;
+            width: 100px;
+            height: 90px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 32 29.6" xmlns="http://www.w3.org/2000/svg"><path fill="%23ff4757" d="M23.6,0c-3.4,0-6.4,1.7-8,4.4C14.8,1.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,8.1,16,17.2,16,17.2s16-9.1,16-17.2 C32,3.8,28.2,0,23.6,0z"/></svg>') no-repeat center;
+            background-size: contain;
+            animation: pulse 1.5s infinite;
         }
-        .no {
-            background-color: #f44336;
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100px;
+            height: 90px;
+            background: inherit;
+            top: 0;
+            animation: pulse 1.5s infinite;
         }
-        .no:hover {
-            background-color: #da190b;
-            border-color: #fff;
+        .heart:before {
+            transform: translateX(-120px);
+            animation-delay: -1s;
+        }
+        .heart:after {
+            transform: translateX(120px);
+            animation-delay: -2s;
         }
     </style>
 </head>
 <body>
+    <div class="heart"></div>
     <h1>Happy Valentine's Day, [Partner's Name]!</h1>
-    <p>Every moment with you is special, filled with joy, laughter, and love. You mean the world to me, and I cannot imagine my life without you in it. 💖</p>
-    <p>On this day of love, I wanted to ask you something very important, something that means a future of us together, forever.</p>
+    <p>Every moment with you is a journey filled with depth, love, and unforgettable memories. You're not just my partner but my best friend, my confidante, and my greatest support.</p>
+    <p>On this day of love, let's celebrate the beautiful, dark, and deep love that we share.</p>
     <div class="question">
         Will you be my valentine for the whole life?
     </div>
     <div class="buttons">
-        <button class="button yes" onclick="response('Yes')">Absolutely</button>
-        <button class="button no" onclick="response('No')">Let's talk</button>
+        <button class="button" onclick="response('Yes')">Yes, I will</button>
+        <button class="button" onclick="response('No')">I already am</button>
     </div>
     <script>
         function response(answer) {
-            let message = answer === 'Yes' ? 'You have made me the happiest person alive! I look forward to spending our forever together. 💖' : 'No worries, every moment with you is precious, and I cherish our journey together. 💕';
+            let message = answer === 'Yes' ? 'You've just made my heart skip a beat! Here's to a lifetime of love and happiness. 💖' : 'Every day with you is a blessing. Let's keep making each other happy. 💕';
             alert(message);
         }
     </script>
